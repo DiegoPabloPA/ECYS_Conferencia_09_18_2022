@@ -1,0 +1,76 @@
+
+        graph  grafi{
+            rankdir=TB;
+            labelloc="t";
+            label="Hospital San Juan de Dios";
+        
+
+        subgraph cluster_1 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="chocolate1";
+            label="Rayos X";
+        
+        subgraph cluster_2 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="honeydew4";
+            label="Paciente en Atencion";
+        P17;
+}
+
+        subgraph cluster_3 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="gray";
+            label="En espera";
+        inv4[label="" shape="plaintext"];
+}
+}
+
+        subgraph cluster_5 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="darkgoldenrod2";
+            label="Consulta 1";
+        
+        subgraph cluster_6 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="honeydew4";
+            label="Paciente en Atencion";
+        inv7[label="" shape="plaintext"];
+}
+
+        subgraph cluster_8 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="gray";
+            label="En espera";
+        inv9[label="" shape="plaintext"];
+}
+}
+
+        subgraph cluster_10 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="darkolivegreen3";
+            label="Consulta 2";
+        
+        subgraph cluster_11 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="honeydew4";
+            label="Paciente en Atencion";
+        inv12[label="" shape="plaintext"];
+}
+
+        subgraph cluster_13 {
+            node [style=filled shape="circle"];
+            style="filled";
+            color="gray";
+            label="En espera";
+        inv14[label="" shape="plaintext"];
+}
+}
+}

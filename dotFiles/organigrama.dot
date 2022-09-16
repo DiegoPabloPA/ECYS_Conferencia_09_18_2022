@@ -1,0 +1,38 @@
+
+        digraph  grafi{
+            rankdir=TB;
+            labelloc="t";
+            label="Organigrama Hospital General San Juan de Dios";
+        A1[shape="circle"];
+
+        A1-> {
+        SA1;
+SA2;
+        }
+        CEO[shape="circle"];
+
+        CEO-> {
+        EncargadoGeneral;
+        }
+        RepresentanteBodega[shape="circle"];
+
+        RepresentanteBodega-> {
+        B1;
+B2;
+B3;
+B4;
+B5;
+        }
+        EncargadoGeneral[shape="circle"];
+
+        EncargadoGeneral-> {
+        RepresentanteBodega;
+RepresentanteAdministracion;
+        }
+        RepresentanteAdministracion[shape="circle"];
+
+        RepresentanteAdministracion-> {
+        A1;
+A2;
+        }
+        }

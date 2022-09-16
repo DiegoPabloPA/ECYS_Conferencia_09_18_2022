@@ -1,0 +1,43 @@
+{
+    "Tipo": "D",
+    "Nombre": "Organigrama Hospital General San Juan de Dios",
+    "Nodos": [
+        {
+            "Name": "A1",
+            "Sons": [
+                "SA1",
+                "SA2"
+            ]
+        },
+        {
+            "Name": "CEO",
+            "Sons": [
+                "EncargadoGeneral"
+            ]
+        },
+        {
+            "Name": "RepresentanteBodega",
+            "Sons": [
+                "B1",
+                "B2",
+                "B3",
+                "B4",
+                "B5"
+            ]
+        },
+        {
+            "Name": "EncargadoGeneral",
+            "Sons": [
+                "RepresentanteBodega",
+                "RepresentanteAdministracion"
+            ]
+        },
+        {
+            "Name": "RepresentanteAdministracion",
+            "Sons": [
+                "A1",
+                "A2"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "Tipo": "G",
+    "Nombre": "Hospital San Juan de Dios",
+    "Estaciones": [
+        {
+            "Nombre": "Rayos X",
+            "Color": "chocolate1"
+        },
+        {
+            "Nombre": "Consulta 1",
+            "Color": "darkgoldenrod2"
+        },
+        {
+            "Nombre": "Consulta 2",
+            "Color": "darkolivegreen3"
+        }
+    ],
+    "Pacientes": [
+        "Rayos X",
+        "Consulta 1",
+        "Rayos X",
+        "Consulta 2",
+        "Consulta 1",
+        "Rayos X",
+        "Consulta 2",
+        "Rayos X",
+        "Rayos X",
+        "Rayos X",
+        "Consulta 2",
+        "Rayos X",
+        "Consulta 2",
+        "Rayos X",
+        "Consulta 1",
+        "Rayos X",
+        "Rayos X"
+    ]
+}

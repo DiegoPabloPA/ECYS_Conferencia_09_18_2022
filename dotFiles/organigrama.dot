@@ -1,8 +1,13 @@
 
-        digraph  grafi{
-            rankdir=TB;
-            labelloc="t";
-            label="Organigrama Hospital General San Juan de Dios";
+            digraph  grafi{
+                rankdir=TB;
+                labelloc="t";
+                label="Organigrama Hospital General San Juan de Dios";
+                node[shape="circle"
+                fixedsize=true
+                width=3
+                height=3
+                ];
         A1[shape="circle"];
 
         A1-> {

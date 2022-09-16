@@ -28,7 +28,7 @@ class Menu:
                         self.generate.generateGraphHospital(json)     
             elif opt==3:
                 os.system('cls')
-                print ("Programa realizado con fin didáctico Realizado por Diego Pérez\nHasta la proxima!\n")
+                print ("Programa realizado con fin didáctico.\nRealizado por Diego Pérez\nHasta la proxima!\n")
             else:
                 os.system('cls')
                 print("Opción inválida por favor seleccione una opción correcta\n") 

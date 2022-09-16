@@ -2,64 +2,34 @@ import operator
 import os
 from functions.dataProccess import getIndexOfElement, objCoincidence
 from functions.getPath import getPath
-from functions.node import Node
+from functions.graphviz import Graphviz
 class generateDot:
     def __init__(self):
-        self.node=Node()
-
-    def graphNoDiHeader(self,title):
-        return """
-        graph  grafi{key}
-            rankdir=TB;
-            labelloc=\"t\";
-            label=\"{tit}\";
-        """.format(key='{',tit=title)
-    def graphDiHeader(self,title):
-        return """
-        digraph  grafi{key}
-            rankdir=TB;
-            labelloc=\"t\";
-            label=\"{tit}\";
-        """.format(key='{',tit=title)
-
-    def headerSubGraph(self,tit,color):
-        return """
-        subgraph cluster_{num} {key}
-            node [style=filled shape="circle"];
-            style=\"filled\";
-            color=\"{col}\";
-            label=\"{title}\";
-        """.format(num=self.node.addCount(),key='{',title=tit,col=color)
-
-    def invisibleNode(self):
-        return "inv"+self.node.addCount()+"[label=\"\" shape=\"plaintext\"];\n"
-
-    def GeneralNode(self,name,form):
-        return name+"[shape=\""+form+"\"];\n"
-
+        self.graph=Graphviz()
+        
 
     def generateGraphHospital(self,json):
         typeFile=input("Ingrese el tipo de Archivo que desea:\n")
         obj=self.orderJsonHospital(json)
         for i in (range(obj["Iterations"])):
             os.system('cls')
-            self.node.resetCount()
-            code=self.graphNoDiHeader(obj["Name"])
+            self.graph.node.resetCount()
+            code=self.graph.graphNoDiHeader(obj["Name"])
             code+="\n"
             for station in obj["Stations"]:
-                code+=self.headerSubGraph(station["Nombre"],station["Color"])
-                code+=self.headerSubGraph("Paciente en Atencion","honeydew4")
+                code+=self.graph.headerSubGraph(station["Nombre"],station["Color"])
+                code+=self.graph.headerSubGraph("Paciente en Atencion","honeydew4")
                 if len(station["Patients"])>0:
                     code+=station["Patients"].pop(0)+";\n"
                 else:
-                    code+=self.invisibleNode()
+                    code+=self.graph.invisibleNode()
                 code+="}\n"
-                code+=self.headerSubGraph("En espera","gray")
+                code+=self.graph.headerSubGraph("En espera","gray")
                 if len(station["Patients"])>0:
                     code+=";\n".join(station["Patients"])
                     code+=";\n"
                 else:
-                    code+=self.invisibleNode()
+                    code+=self.graph.invisibleNode()
                 code+="}\n"
                 
                 code+="}\n"
@@ -72,21 +42,17 @@ class generateDot:
             os.system("dot -T"+typeFile+" "+directionDot+" -o "+directionFile)
             os.system(directionFile)
             input("Presione cualquier tecla para continuar...............")
+        os.system('cls')
 
-    def relations(self,father,sons):
-        return """
-        {f}-> {kopen}
-        {body};
-        {kclose}
-        """.format(f=father,kopen='{',kclose='}',body=";\n".join(sons))  
+   
     
     def generateGraphOrganigrama(self,json):
         typeFile=input("Ingrese el tipo de Archivo que desea:\n")
-        code=self.graphDiHeader(json["Nombre"])
+        code=self.graph.graphDiHeader(json["Nombre"])
         for nod in json["Nodos"]:
-            code+=self.GeneralNode(nod["Name"],"circle")
+            code+=self.graph.GeneralNode(nod["Name"],"circle")
             if len(nod["Sons"])>0:
-                code+=self.relations(nod["Name"],nod["Sons"])
+                code+=self.graph.relations(nod["Name"],nod["Sons"])
         code+="}\n"
         directionDot=getPath()+'\\\\dotFiles\\\\organigrama.dot'
         directionFile=getPath()+'\\\\generateFiles\\\\example2.'+typeFile

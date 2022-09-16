@@ -1,7 +1,3 @@
-from itertools import count
-from typing_extensions import Self
-
-
 class Node:
 
     def __init__(self):
